@@ -1,40 +1,33 @@
 import { useState } from 'react'
-import BubbleBtn from './components/bubble-btn';
+import { Routes, Route } from 'react-router-dom';
+
 import TopBar from './components/topbar';
 import BubbleLink from './components/bubble-a';
+import WavyMenu from './components/menu';
+import BubbleBtn from './components/bubble-btn';
+
+
+import Home from './pages/home';
+import Tab1 from './pages/tab1';
+import Tab2 from './pages/tab2';
+import Tab3 from './pages/tab3';
+
 
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    
-    <main className='flex flex-col min-h-screen items-center gap-20 p-8 pt-60'>
+    <>
       <TopBar />
-      <div className='flex flex-col gap-0'>
-          <h1>Hello World!</h1>
-          <h2>This is a demo</h2>
-      </div>
-      
-    <div className='flex flex-hor gap-20'>
-          <BubbleBtn text="Test"
-            className="center"/>
-          <BubbleBtn text={`${count}`}
-            className="center"
-            onClick={() => setCount(count+1)}/>
-          <BubbleBtn text="Hello"
-            className="center"/>
-    </div>
-    <br />
-
-
-    <br />
-    <p>hdjfjkdjdjdjjjjff</p>
-    <br />
-
-      
-    </main>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/tab1" element={<Tab1 />}/>
+        <Route path="/tab2" element={<Tab2 />}/>
+        <Route path="/tab3" element={<Tab3 />}/>
+      </Routes>
+    </>
   );
 }
+
+//  
 
 export default App

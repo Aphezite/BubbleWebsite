@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const rand = (min,max) => min+Math.random()*(max-min);
 
@@ -20,7 +21,7 @@ const click = [
     {transform:"scale(1,1)"},
 ]
 
-function BubbleLink({ text, height = "h-32", width = "w-32", href}) {
+function BubbleLink({ to, text, height = "h-32", width = "w-32", selected, onClick }) {
     const [s] = useState(() => ({
         x: {animationDuration:`${rand(4,5)}s`, animationDelay:`${-rand(0,4)}s`},
         y: {animationDuration:`${rand(2,3)}s`, animationDelay:`${-rand(0,3)}s`},
@@ -125,42 +126,56 @@ function BubbleLink({ text, height = "h-32", width = "w-32", href}) {
     const pause = pushing ? "[animation-play-state:paused]": "";
 
     return (
+        <NavLink
+            to={to}
+            end={to==="/"}
+            onClick={handleClick}
+            className={`relative ${height} ${width} pointer-events-auto`}>
 
-        <div className={`relative ${height} ${width}`}>
+                <div className={`absolute inset-0 transition-all ${selected ? "scale-100 opacity-100":"scale-50 opacity-0 pointer-events-none"}`}>
+                <div className={`animate-float-x ${pause}`} style={s.x}>
+                <div className={`animate-float-y ${pause}`} style={s.y}>
+                <div className={`animate-float-squish ${pause}`} style={s.q}>
+                    <div ref={pushRef} className="w-fit">
+                    <div ref={squishRef}>
+                        <p 
+                        style={{
+                            background: `radial-gradient(circle at 10% 25%, #fcbecb, #f9b2c4, #d49bc6)`
+                        }} 
+                        className={`
+                        ${height} ${width} 
+                        rounded-full bg-gradient-to-br from 
+                        shadow-lg`} />
+                    </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                
+
+                <a 
+                    className={`absolute inset-0 flex items-center justify-center ${height} ${width}`}>
+                    <span className={`text-center navtab`} data-hovered={hovered} data-selected={selected}>{text}</span>
+                </a>
             
-            <div className="absolute inset-0">
-            <div className={`animate-float-x ${pause}`} style={s.x}>
-            <div className={`animate-float-y ${pause}`} style={s.y}>
-            <div className={`animate-float-squish ${pause}`} style={s.q}>
-                <div ref={pushRef} className="w-fit">
-                <div ref={squishRef}>
-                    <p 
-                    style={{
-                        background: `radial-gradient(circle at 10% 25%, #fcbecb, #f9b2c4, #d49bc6)`
-                    }} 
-                    className={`
-                    ${height} ${width} 
-                    rounded-full bg-gradient-to-br from 
-                    shadow-lg`} />
-                </div>
-                </div>
-            </div>
-            </div>
-            </div>
-            </div>
-
-            <a href={`${href}`}
-                className={`
-                    absolute inset-0 flex items-center justify-center
-                ${height} ${width}`}>
-                    <p className="text-center navtab" data-hovered={hovered}>{text}</p>
-            </a>
-
-        </div>
+        </NavLink>
            
-    
     );
 }
+
+
+/*
+<a href={`${href}`}
+                        onClick={handleClick}
+                        className={`
+                            absolute inset-0 flex items-center justify-center
+                        ${height} ${width}`}>
+ </a>
+
+*/
+
+// <div className={`relative ${height} ${width} pointer-events-auto`}>
 
 // <span className="overflow-hiddden items-center justify-center text-center navtab" data-hovered={hovered}>{text}</span>
 

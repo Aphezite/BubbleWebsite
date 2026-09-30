@@ -20,7 +20,7 @@ const click = [
     {transform:"scale(1,1)"},
 ]
 
-function BubbleBtn({ text, height = "h-32", width = "w-32", onClick}) {
+function BubbleBtn({ text, height = 120, width = 120, onClick}) {
     const [s] = useState(() => ({
         x: {animationDuration:`${rand(4,5)}s`, animationDelay:`${-rand(0,4)}s`},
         y: {animationDuration:`${rand(2,3)}s`, animationDelay:`${-rand(0,3)}s`},
@@ -124,6 +124,9 @@ function BubbleBtn({ text, height = "h-32", width = "w-32", onClick}) {
 
     const pause = pushing ? "[animation-play-state:paused]": "";
 
+    const ratio = width/height;
+    let gradPos = (ratio < 2)?`10% 25%`:`35% 5%`;
+
     return (
         <div className={`animate-float-x ${pause}`} style={s.x}>
         <div className={`animate-float-y ${pause}`} style={s.y}>
@@ -134,12 +137,13 @@ function BubbleBtn({ text, height = "h-32", width = "w-32", onClick}) {
                 <button 
                 onClick={handleClick}
                 style={{
-                    background: `radial-gradient(circle at 10% 25%, #fcbecb, #f9b2c4, #d49bc6)`
-
+                    background: `radial-gradient(circle at ${gradPos}, #fcbecb, #f9b2c4, #d49bc6)`,
+                    width,
+                    height,
                 }}//f5e5f5 daa38c 
                 className={`
                 relative overflow-hidden
-                ${height} ${width} items-center justify-center 
+                h-${height} w-${width} items-center justify-center 
                 rounded-full bg-gradient-to-br from
                 text-center 
                 shadow-lg`}>
