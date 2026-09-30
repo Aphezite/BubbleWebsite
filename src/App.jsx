@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import BubbleBtn from './components/bubble-btn';
 import TopBar from './components/topbar';
+import BubbleLink from './components/bubble-a';
 
 
 function App() {
@@ -24,6 +25,12 @@ function App() {
           <BubbleBtn text="Hello"
             className="center"/>
     </div>
+    <br />
+
+
+    <br />
+    <p>hdjfjkdjdjdjjjjff</p>
+    <br />
 
       
     </main>
