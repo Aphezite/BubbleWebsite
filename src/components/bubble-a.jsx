@@ -126,7 +126,7 @@ function BubbleLink({ to, text, height = "h-32", width = "w-32", selected, onCli
     const pause = pushing ? "[animation-play-state:paused]": "";
 
     return (
-        <NavLink
+        <Link
             to={to}
             end={to==="/"}
             onClick={handleClick}
@@ -159,7 +159,7 @@ function BubbleLink({ to, text, height = "h-32", width = "w-32", selected, onCli
                     <span className={`text-center navtab`} data-hovered={hovered} data-selected={selected}>{text}</span>
                 </a>
             
-        </NavLink>
+        </Link>
            
     );
 }
