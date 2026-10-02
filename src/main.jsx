@@ -4,8 +4,10 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx'
 import './index.css'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
     <BrowserRouter basename='/BubbleWebsite'>
       <App />
     </BrowserRouter>
+  </StrictMode>,
 )
