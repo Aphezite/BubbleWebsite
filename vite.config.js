@@ -4,4 +4,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  base: "/BubbleWebsite/",
+  // https://aphezite.github.io/BubbleWebsite/
 });
