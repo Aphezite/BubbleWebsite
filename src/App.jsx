@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import TopBar from './components/topbar';
 import BubbleLink from './components/bubble-a';
@@ -16,7 +16,7 @@ import Tab3 from './pages/tab3';
 
 function App() {
   return (
-    <>
+    <BrowserRouter basename='/BubbleWebsite'>
       <TopBar />
       <Routes>
         <Route path="/" element={<Home />}/>
@@ -24,7 +24,7 @@ function App() {
         <Route path="/tab2" element={<Tab2 />}/>
         <Route path="/tab3" element={<Tab3 />}/>
       </Routes>
-    </>
+    </BrowserRouter>
   );
 }
 
