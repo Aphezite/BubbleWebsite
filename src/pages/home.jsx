@@ -27,7 +27,10 @@ function Home() {
 
                 <h2>I am a header for this menu</h2>
 
-                <div className='w-200 h-100 bg-[#d49bc6] rounded-[40px] shadow-lg'/>
+                
+                <div className='img-wrapper w-200 h-100 rounded-[40px] shadow-lg'>
+                    <img src=''></img>
+                </div>
 
                 <p className='text-center w-190'>This could be an image of something and this text could be talking about the image. But, it is not.</p>
                 <BubbleBtn text="Learn more" height={120} width={200}/>

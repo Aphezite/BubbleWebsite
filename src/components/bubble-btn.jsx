@@ -137,7 +137,7 @@ function BubbleBtn({ text, height = 120, width = 120, onClick}) {
                 <button 
                 onClick={handleClick}
                 style={{
-                    background: `radial-gradient(circle at ${gradPos}, #fcbecb, #f9b2c4, #d49bc6)`,
+                    
                     width,
                     height,
                 }}//f5e5f5 daa38c 
@@ -146,7 +146,8 @@ function BubbleBtn({ text, height = 120, width = 120, onClick}) {
                 h-${height} w-${width} items-center justify-center 
                 rounded-full bg-gradient-to-br from
                 text-center 
-                shadow-lg`}>
+                shadow-lg
+                ${((ratio < 2)?`bubble`:`bubble-long`)}`}>
                     <span className="bubble-text" data-hovered={hovered}>{text}</span>
                 </button>
 
@@ -157,5 +158,7 @@ function BubbleBtn({ text, height = 120, width = 120, onClick}) {
         </div>
     );
 }
+
+// background: `radial-gradient(circle at ${gradPos}, #fcbecb, #f9b2c4, #d49bc6)`,
 
 export default BubbleBtn;

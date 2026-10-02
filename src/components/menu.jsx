@@ -81,9 +81,7 @@ function WavyMenu({children, amp = 4, wavelength=300,speed=1,radius=28,className
                 
                 <path 
                     ref={pathRef}
-                    fill="#f19f9100"
-                    stroke="#f1a091"
-                    strokeWidth="3"
+                    className="wavy-menu"
                 />
             </svg>
             <div className="relative z-10 p-8">{children}</div>

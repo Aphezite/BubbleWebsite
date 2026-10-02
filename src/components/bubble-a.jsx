@@ -138,14 +138,12 @@ function BubbleLink({ to, text, height = "h-32", width = "w-32", selected, onCli
                 <div className={`animate-float-squish ${pause}`} style={s.q}>
                     <div ref={pushRef} className="w-fit">
                     <div ref={squishRef}>
-                        <p 
-                        style={{
-                            background: `radial-gradient(circle at 10% 25%, #fcbecb, #f9b2c4, #d49bc6)`
-                        }} 
-                        className={`
+                        <div className={` 
+                        rounded-full 
+                        bg-gradient-to-br from 
+                        shadow-lg
                         ${height} ${width} 
-                        rounded-full bg-gradient-to-br from 
-                        shadow-lg`} />
+                        bubble`} />
                     </div>
                     </div>
                 </div>
